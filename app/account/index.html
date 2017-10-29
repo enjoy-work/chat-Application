@@ -1,0 +1,42 @@
+<h1>My Account</h1>
+<div class="form-container">
+    <form method="post">
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" class="form-control" ng-model="vm.user.firstName" required />
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" class="form-control" ng-model="vm.user.lastName" required />
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" class="form-control" ng-model="vm.user.username" required />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" class="form-control" ng-model="vm.user.email" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" ng-model="vm.user.password" />
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile</label>
+             <input type="text"  id="mobile" class="form-control" ng-model="vm.user.mobile" maxlength="10" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"  required/>
+        </div>
+            <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="radio" name="gender" value="male" ng-model="vm.user.gender" required > Male
+             <input type="radio" name="gender" value="female" ng-model="vm.user.gender" required> Female<br>
+        </div>
+            <div class="form-group">
+            <label for="pic">Profile pic</label>
+            <input type="file" id="pic" class="form-control" ng-model="vm.user.pic"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="vm.saveUser()">Save</button>
+            <button class="btn btn-danger" ng-click="vm.deleteUser()">Delete</button>
+        </div>
+    </form>
+</div>

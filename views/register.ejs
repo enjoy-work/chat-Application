@@ -1,0 +1,49 @@
+<%- include('partials/header') %>
+<div class="form-container">
+    <h2>Register</h2>
+    <% if(locals.error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <form method="post">
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" name="firstName" id="firstName" class="form-control" value="<%= locals.firstName || '' %>" required />
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" name="lastName" id="lastName" class="form-control" value="<%= locals.lastName || '' %>" required />
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" value="<%= locals.username || '' %>" required />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<%= locals.email || '' %>" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input type="text" name="mobile" id="mobile" class="form-control" maxlength="10" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required />
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+             &nbsp;<input type="radio" name="gender" value="male" > Male
+             <input type="radio" name="gender" value="female"> Female<br>
+        </div>
+
+        <div class="form-group">
+            <label for="pic">Profile Pic</label>
+            <input type="file" name="pic" value="<%= locals.pic || '' %>" id="pic">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Register</button>
+            <a href="/login" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+</div>
+<%- include('partials/footer') %>
